@@ -8,7 +8,7 @@ import {
   InputSelect,
 } from "../../../component";
 import { AnimatePresence } from "framer-motion";
-import { UseStateContextSousCategorie } from "./contextSousCategorie.js";
+import { UseStateContextSousCategorie } from "../../../contexts/dashbored/contextProviderSousCategorie.js";
 const SousCategorie = () => {
   const {
     bindcategorie,

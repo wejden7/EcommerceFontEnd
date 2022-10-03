@@ -1,11 +1,11 @@
 import React,{createContext,useContext,useState ,useEffect} from 'react'
-import {getAll as getAllSousSousCategorie} from '../../../service/sousSousCategorie.service'
-import {getAll as getAllForniseur} from '../../../service/forniseur.service'
-import {getAll as getAllMarque} from '../../../service/marque.service'
-import useTextInput from '../../../hooks/textInput'
-import useImagesInput from '../../../hooks/imagesInput'
-import {create,getAll as getAllProduit,deleteById}from '../../../service/produit'
-import{isEmpty,isNumber,isDouble}from "../../../validateur/validator"
+import {getAll as getAllSousSousCategorie} from '../../service/sousSousCategorie.service'
+import {getAll as getAllForniseur} from '../../service/forniseur.service'
+import {getAll as getAllMarque} from '../../service/marque.service'
+import useTextInput from '../../hooks/inputText'
+import useImagesInput from '../../hooks/inputFile'
+import {create,getAll as getAllProduit,deleteById}from '../../service/produit'
+import{isEmpty,isNumber,isDouble}from "../../validateur/validator"
 
 const StateContext = createContext();
 const NavSechma = [
@@ -58,7 +58,7 @@ export const ContextProviderProduit  =({children}) => {
     const [description,setDescription,] = useState([]);
     const [clickedUpdateDescription,setClickedUpdateDescription,] = useState(false);
     const [indexDescription,setIndexDescription,] = useState('');
-    const[file,image,imageName, bindimage, resetimage,]=useImagesInput()
+    const[file,image, bindimage, resetimage,]=useImagesInput()
 
     const resetForm =()=>{
         resetcategorieSelect()

@@ -1,7 +1,7 @@
 import React from "react";
 
-import {InputText,InputFile,InputSelect} from "../../component"
-
+import {InputText,InputFile,InputSelect} from ".."
+    
 const FormCategorie = ({
   bindlabel,
   bindIcon,

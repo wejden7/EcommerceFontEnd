@@ -12,7 +12,7 @@ import {
 
 import { UseStateContext } from "../../../contexts/contextProvider";
 
-import { UseStateContextSousSousCategorie } from "./contextSousSousCategorie";
+import { UseStateContextSousSousCategorie } from "../../../contexts/dashbored/contextProviderSousSousCategorie";
 
 import { AnimatePresence } from "framer-motion";
 

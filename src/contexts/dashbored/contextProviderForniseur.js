@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import useTextInput from "../../../hooks/textInput";
-import {create,getAll,deleteByArrayId,updateById} from "../../../service/forniseur.service";
-import {isEmpty,isEmail,isNumberPhone}from '../../../validateur/validator'
-import { UseStateContext } from "../../../contexts/contextProvider";
+import useTextInput from "../../hooks/inputText";
+import {create,getAll,deleteByArrayId,updateById} from "../../service/forniseur.service";
+import {isEmpty,isEmail,isNumberPhone}from '../../validateur/validator'
+import { UseStateContext } from "../contextProvider";
 
 const StateContext = createContext();
 const NavSechma = [

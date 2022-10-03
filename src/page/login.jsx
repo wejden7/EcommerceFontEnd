@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { FaFacebook, FaApple,  } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import useLoginInput from "../hooks/useLoginInput";
+import useLoginInput from "../hooks/inputText";
 import { login } from "../service/auth";
 
 const ButtonLogin = ({ Icon, text }) => {

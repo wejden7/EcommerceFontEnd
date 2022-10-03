@@ -1,15 +1,15 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import useTextInput from "../../../hooks/textInput";
-import useIconInput from "../../../hooks/iconInput";
-import { UseStateContext } from "../../../contexts/contextProvider";
-import { getAll } from "../../../service/categorie";
-import{isEmpty,isEmptyFile}from "../../../validateur/validator"
+import useTextInput from "../../hooks/inputText";
+import useIconInput from "../../hooks/inputFile";
+import { UseStateContext } from "../contextProvider";
+import { getAll } from "../../service/categorie";
+import{isEmpty,isEmptyFile}from "../../validateur/validator"
 import {
   create,
   getAll as getAllSousCategorie,
   deleteById,
   updateById,
-} from "../../../service/sousCategorie.service";
+} from "../../service/sousCategorie.service";
 const StateContext = createContext();
 
 const Error = {
@@ -52,7 +52,7 @@ export const ContextProviderSouCategorie = ({ children }) => {
     resetRechercheCategorie,
     setRechercheCategorie,
   ] = useTextInput("All");
-  const [file, icon, iconName, bindIcon, resetIcon] = useIconInput();
+  const [file, icon, bindIcon, resetIcon] = useIconInput();
   const [error, setError] = useState(Error);
   const [formValid, setFormValid] = useState(false);
   const [SubmitCliked, setSubmitCliked] = useState(false);
@@ -150,7 +150,7 @@ export const ContextProviderSouCategorie = ({ children }) => {
 // Function  async Crud 
 
   const CreatNewSousCategorie = async () => {
-    await create(icon, label, categorie, iconName)
+    await create(icon, label, categorie)
       .then(() => {
         resetForm();
         getAllSousCategorieFn();
@@ -198,7 +198,7 @@ export const ContextProviderSouCategorie = ({ children }) => {
     console.log(label);
     setUpdateCliked(true);
     if (formUpadteValid) {
-      await updateById(id, icon, label, iconName, iconUpadte, categorie)
+      await updateById(id, icon, label, iconUpadte, categorie)
         .then(async (result) => {
           console.log(result);
           handleCloseModel();
@@ -257,7 +257,7 @@ export const ContextProviderSouCategorie = ({ children }) => {
         setLabel,
         file,
         icon,
-        iconName,
+    
         bindIcon,
         resetIcon,
       }}

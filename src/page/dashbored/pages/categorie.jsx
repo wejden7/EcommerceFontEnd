@@ -1,7 +1,8 @@
 import React from "react";
 import { AnimatePresence } from "framer-motion";
 
-import { UseStateContextCategorie } from "./contextCategorie";
+
+import { UseStateContextCategorie } from "../../../contexts/dashbored/contextProviderCategorie";
 import {
   Nav,
   ModelComponent,
@@ -27,7 +28,7 @@ const Categorie = () => {
     updateCliked,
     nav
   } = UseStateContextCategorie();
-
+ 
   return (
     <div className="m-2">
       <Nav Nav={nav} />
@@ -56,9 +57,9 @@ const Categorie = () => {
               <CardCategorie
                 key={item._id}
                 item={item}
-                deleteCategoriById={deleteCategoriById}
-                handleClickUpadet={handleClickUpadet}
-                next="sousCategorie"
+                Delete={deleteCategoriById}
+                Update={handleClickUpadet}
+                url="sousCategorie"
               />
             );
           })}

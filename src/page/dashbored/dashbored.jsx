@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Sidebar, Navbar } from "../component";
-import { UseStateContext } from "../contexts/contextProvider";
+import { Sidebar, Navbar } from "../../component";
+import { UseStateContext } from "../../contexts/contextProvider";
 
 
 const Dashbored = () => {

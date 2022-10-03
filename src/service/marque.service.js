@@ -1,10 +1,9 @@
 import axiosConfig from "../config/axioConfig";
 
-export async function create(label,logo,logoName,onUploadProgress) {
+export async function create(label,logo,onUploadProgress) {
     const data = new FormData();
-    data.append("logo", logo);
+    data.append("logo", logo[0]);
     data.append("label", label);
-    data.append("logoName", logoName);
 
  
   const config = {
@@ -65,11 +64,10 @@ export async function deleteById (id){
       });
 }
 
-export async function updateById (id,label,logo,logoName,logoNameExist){
+export async function updateById (id,label,logo,logoNameExist){
     const data = new FormData();
-    data.append("logo", logo);
+    data.append("logo", logo[0]);
     data.append("label", label);
-    data.append("logoName", logoName);
     data.append("logoNameExist", logoNameExist);
     const headers = {
        "Content-Type": "multipart/form-data",

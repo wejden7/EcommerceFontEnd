@@ -1,5 +1,5 @@
 import React from "react";
-import { UseStateContextForniseur } from "./contextForniseur";
+import { UseStateContextForniseur } from "../../../contexts/dashbored/contextProviderForniseur";
 import { DataGrid } from "@mui/x-data-grid";
 import {MdOutlineDeleteOutline,MdUpdate} from "react-icons/md"
 import Tooltip from "@mui/material/Tooltip";

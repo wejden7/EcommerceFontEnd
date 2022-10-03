@@ -1,3 +1,7 @@
+//export { default as Form}from '';
+export { default as Linear}from './progress/linear';
+export { default as  FilterMotion}from './framer-motion/filterMotion';
+export { default as Image }from './image/image';
 export { default as Sidebar } from './sidebar/sidebar';
 export { default as Navbar } from './navBar/navbar';
 export { default as Notification } from './notification/notification';

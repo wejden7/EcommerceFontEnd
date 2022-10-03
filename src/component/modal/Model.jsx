@@ -4,10 +4,10 @@ import  { OpenButton, CloseButton } from "../../component";
 import  { AiOutlinePlus } from "react-icons/ai";
 import  Modal from "@mui/material/Modal";
 import  { UseStateContext } from '../../contexts/contextProvider'
-import  { UseStateContextCategorie } from '../../page/dashbored/categorie/contextCategorie'
-import  { UseStateContextSousCategorie } from '../../page/dashbored/sousCategorie/contextSousCategorie'
-import  { UseStateContextSousSousCategorie } from '../../page/dashbored/sousSousCategorie/contextSousSousCategorie'
-import  { UseStateContextProduit } from '../../page/dashbored/produit/produit'
+import  { UseStateContextCategorie } from '../../contexts/dashbored/contextProviderCategorie'
+import  { UseStateContextSousCategorie } from '../../contexts/dashbored/contextProviderSousCategorie'
+import  { UseStateContextSousSousCategorie } from '../../contexts/dashbored/contextProviderSousSousCategorie'
+import  { UseStateContextProduit } from '../../contexts/dashbored/contextProviderProduit'
 const style = {
   position: "absolute",
   top: "50%",
@@ -22,12 +22,11 @@ const {resetForm}=UseStateContextCategorie()||UseStateContextSousCategorie()||Us
   return (
     <div>
       <OpenButton
-        customFunc={() => {
+        onClick={() => {
           resetForm()
           handleOpenModel()}}
         icon={<AiOutlinePlus />}
         title="New Categorie"
-        dotColor={"white"}
       />
       <Modal
         open={openModel}

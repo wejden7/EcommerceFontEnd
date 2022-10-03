@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import useTextInput from "../../../hooks/textInput";
-import useIconInput from "../../../hooks/iconInput";
-import { UseStateContext } from "../../../contexts/contextProvider";
-import {create,getAll,deleteById,updateById} from "../../../service/marque.service"
-import{isEmpty,isEmptyFile}from "../../../validateur/validator"
+import useTextInput from "../../hooks/inputText";
+import useLogoInput from "../../hooks/inputFile";
+import { UseStateContext } from "../contextProvider";
+import {create,getAll,deleteById,updateById} from "../../service/marque.service"
+import{isEmpty,isEmptyFile}from "../../validateur/validator"
 const StateContext = createContext();
 
 const NavSechma = [
@@ -25,7 +25,7 @@ export const ContextProviderMarque = ({ children }) => {
     const {handleClickSnackbar,severityESWI,} = UseStateContext();
     const [nav,setNav] = useState(NavSechma)
     const [label,bindLabel,resetLabel,setLabel,] = useTextInput("");
-    const [file, logo, logoName, bindLogo, resetLogo] = useIconInput();
+    const [file, logo, bindLogo, resetLogo] = useLogoInput();
     const [saveCliked,setSaveCliked] =useState(false);
     const [formValid,setFormValid] =useState(false);
     const [error,setError] =useState(Error);
@@ -91,7 +91,7 @@ export const ContextProviderMarque = ({ children }) => {
     }
 
     const createMarque =async ()=>{
-        await create(label,logo,logoName,function (progressEvent){
+        await create(label,logo,function (progressEvent){
             const {loaded,total}=progressEvent;
             let precent = Math.floor((loaded*100)/total);
             setProgress(precent)
@@ -140,7 +140,7 @@ export const ContextProviderMarque = ({ children }) => {
     const updateMarque = async  () => {
         setUpdateCliked(true)
         if(formUpadetValid){
-            await updateById(id,label,logo,logoName,logNameExist)
+            await updateById(id,label,logo,logNameExist)
             .then((result)=>{
                 
                 getAllMarque()

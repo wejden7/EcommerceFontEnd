@@ -8,7 +8,7 @@ import {
   CardNewMarque,
   CardMarque,
 } from "../../../component";
-import { UseStateContextMarque } from "./marque";
+import { UseStateContextMarque } from "../../../contexts/dashbored/contextProviderMarque";
 import { AnimatePresence } from "framer-motion";
 const Marque = () => {
   const {
@@ -61,14 +61,14 @@ const Marque = () => {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5   ">
           <AnimatePresence>
-            {(file || label.length > 0) && (
+            {(file.length ==1 || label.length > 0) && (
               <CardNewMarque
                 update={update}
-                file={file}
+                file={file[0]}
                 label={label}
                 reset={reset}
-                handelSave={handelSave}
-                updateMarque={updateMarque}
+                SaveFunction={handelSave}
+                UpdateFunction={updateMarque}
                 loding={loding}
                 progress={progress}
               />
@@ -78,8 +78,8 @@ const Marque = () => {
                 <CardMarque
                   key={item._id}
                   item={item}
-                  handelUpdate={handelUpdate}
-                  deleteMarque={deleteMarque}
+                  Update={handelUpdate}
+                  Delete={deleteMarque}
                 />
               );
             })}

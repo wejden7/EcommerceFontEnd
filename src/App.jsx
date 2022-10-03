@@ -1,11 +1,11 @@
 import React from "react";
 import {  Routes, Route } from "react-router-dom";
-import {ContextProvider} from './page/dashbored/categorie/contextCategorie'
-import {ContextProviderSouCategorie} from './page/dashbored/sousCategorie/contextSousCategorie'
-import {ContextProviderSousSousCategorie} from './page/dashbored/sousSousCategorie/contextSousSousCategorie'
-import {ContextProviderForniseur} from './page/dashbored/forniseur/contextForniseur'
-import {ContextProviderMarque} from './page/dashbored/marque/marque'
-import {ContextProviderProduit} from './page/dashbored/produit/produit'
+import {ContextProvider} from './contexts/dashbored/contextProviderCategorie'
+import {ContextProviderSouCategorie} from './contexts/dashbored/contextProviderSousCategorie'
+import {ContextProviderSousSousCategorie} from './contexts/dashbored/contextProviderSousSousCategorie'
+import {ContextProviderForniseur} from './contexts/dashbored/contextProviderForniseur'
+import {ContextProviderMarque} from './contexts/dashbored/contextProviderMarque'
+import {ContextProviderProduit} from './contexts/dashbored/contextProviderProduit'
 import "./App.css";
 import { Login,Dashbored,Home ,Categorie,SousCategorie,SousSousCategorie,Forniseur,Marque,Produit} from "./page";
 import {ProtectedRoute} from "./component"

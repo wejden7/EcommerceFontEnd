@@ -1,10 +1,9 @@
 import axiosConfig from "../config/axioConfig";
 
-export async function create(label, icon, iconName) {
+export async function create(label, icon) {
   const categorie = new FormData();
-  categorie.append("icon", icon);
+  categorie.append("icon", icon[0]);
   categorie.append("label", label);
-  categorie.append("iconName", iconName);
   const headers = {
     "Content-Type": "multipart/form-data",
   };
@@ -56,11 +55,10 @@ export async function deleteById(id) {
   });
 }
 
-export async function updateById(label, icon, iconName ,id,iconUpadte) {
+export async function updateById(label, icon ,id,iconUpadte) {
   const categorie = new FormData();
-  categorie.append("icon", icon);
+  categorie.append("icon", icon[0]);
   categorie.append("label", label);
-  categorie.append("iconName", iconName);
   categorie.append("iconUpadte", iconUpadte);
   const headers = {
     "Content-Type": "multipart/form-data",

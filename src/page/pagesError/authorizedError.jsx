@@ -1,7 +1,7 @@
 import React from "react";
-import image from '../data/4041.jpg';
+import image from '../../data/4041.jpg';
 import { useNavigate } from "react-router-dom";
-const AuthenticatedError = ()=>{
+const AuthorizedError = ()=>{
     const navigate = useNavigate();
 
     const navigateToLogin= ()=>{
@@ -11,7 +11,7 @@ const AuthenticatedError = ()=>{
         <div className="grid h-screen  place-items-center bg-white">
             <div className="grid   place-items-center ">
             <img className=" w-2/5 " src={image} alt={404} />
-                <div className="text-3xl py-1 font-bold text-sky-800 tracking-wide">No authenticated found.</div>
+                <div className="text-3xl py-1 font-bold text-sky-800 tracking-wide">No authorization found.</div>
                 <div className="text-base font-medium  text-sky-800 opacity-60 tracking-wide">This  page is not publically available.</div>
                 <div className="text-base py-1 font-medium text-sky-800 opacity-60 tracking-wide">To access it please login first.</div>
                 <button
@@ -27,4 +27,4 @@ const AuthenticatedError = ()=>{
     )
 }
 
-export default AuthenticatedError;
+export default AuthorizedError

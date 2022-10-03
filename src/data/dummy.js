@@ -3,10 +3,8 @@ import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
 import avatar4 from './avatar4.jpg';
-import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
+import {  AiOutlineShoppingCart } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit } from 'react-icons/fi';
-import { BsKanban,  } from 'react-icons/bs';
-import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine } from 'react-icons/ri';
 
@@ -90,3 +88,6 @@ export const links = [
       time: '1:12 AM',
     },
   ];
+var url_host =  "https://shope7.herokuapp.com"
+var url_local =  "http://127.0.0.1:3006"
+export const baseUrl= url_local;

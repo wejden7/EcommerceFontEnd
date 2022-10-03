@@ -2,8 +2,8 @@ import React from "react";
 import { AiOutlineShop, AiOutlineBulb } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import { BiDollarCircle } from "react-icons/bi";
-import { UseStateContext } from "../../contexts/contextProvider";
-import { CardHome, ChartBar, ChartArea,ChartPie } from "../../component";
+import { UseStateContext } from "../../../contexts/contextProvider";
+import { CardHome, ChartBar, ChartArea,ChartPie } from "../../../component";
 
 const Home = () => {
   const { activeMenu } = UseStateContext();
@@ -22,32 +22,32 @@ const Home = () => {
           text="+5k"
           soutext="Produit"
           activeMenu={activeMenu}
-          from="cyan-400"
-          to="blue-600 "
+          fromColor="cyan-400"
+          toColor="blue-600 "
         />
         <CardHome
           icon={<BsFillPersonFill />}
           text="+220k"
           soutext="Client"
           activeMenu={activeMenu}
-          from="teal-400"
-          to="lime-400"
+          fromColor="teal-400"
+          toColor="lime-400"
         />
         <CardHome
           icon={<AiOutlineBulb />}
           text="145"
           soutext="Marque"
           activeMenu={activeMenu}
-          from="yellow-400"
-          to="lime-400"
+          fromColor="yellow-400"
+          toColor="lime-400"
         />
         <CardHome
           icon={<BiDollarCircle />}
           text="5M"
           soutext="Ventes"
           activeMenu={activeMenu}
-          from="orange-300"
-          to="orange-600"
+          fromColor="orange-300"
+          toColor="orange-600"
         />
       </div>
 

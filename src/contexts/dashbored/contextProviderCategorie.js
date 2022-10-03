@@ -1,14 +1,14 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import useIconInput from "../../../hooks/iconInput";
-import useCategorieInput from "../../../hooks/categotieInput";
-import { UseStateContext } from "../../../contexts/contextProvider";
-import{isEmpty,isEmptyFile}from "../../../validateur/validator"
+import useIconInput from "../../hooks/inputFile";
+import useCategorieInput from "../../hooks/inputText";
+import { UseStateContext } from "../contextProvider";
+import{isEmpty,isEmptyFile}from "../../validateur/validator"
 import {
   create,
   getAll,
   deleteById,
   updateById,
-} from "../../../service/categorie";
+} from "../../service/categorie";
 
 const StateContext = createContext();
 const Error = {
@@ -36,7 +36,7 @@ export const ContextProvider = ({ children }) => {
   } = UseStateContext();
   const [data, setData] = useState([]);
   const [label, bindlabel, resetlabel, setLabel] = useCategorieInput("");
-  const [file, icon, iconName, bindIcon, resetIcon] = useIconInput();
+  const [file, icon, bindIcon, resetIcon] = useIconInput();
   const [formValid, setFormValid] = useState(false);
   const [formUpadetValid,setFormUpadteValid] =useState(false);
   const [submit, setSubmit] = useState(false);
@@ -105,7 +105,7 @@ export const ContextProvider = ({ children }) => {
   // Function async of service   CRUD
 
   const createNewCategorie = async () => {
-    await create(label, icon, iconName)
+    await create(label, icon)
       .then(async (res) => {
         handleClickSnackbar("sucssec wejden", severityESWI[1]);
         resetForm();
@@ -128,7 +128,7 @@ export const ContextProvider = ({ children }) => {
 
   const updateCategorie = async () => {
 
-      updateById(label, icon, iconName, id, iconUpadte)
+      updateById(label, icon, id, iconUpadte)
       .then(async (res) => {
         handleCloseModel();
         resetForm();
@@ -171,7 +171,6 @@ export const ContextProvider = ({ children }) => {
         resetIcon,
         icon,
         bindIcon,
-        iconName,
         formValid,
         error,
         submit,

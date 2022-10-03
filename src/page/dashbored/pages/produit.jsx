@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav, FormProduit, OpenButton } from "../../../component";
-import { UseStateContextProduit } from "./produit";
+import { UseStateContextProduit } from "../../../contexts/dashbored/contextProviderProduit";
 import {
   AiOutlinePlus,
   AiOutlineHeart,
@@ -57,7 +57,7 @@ const Produit = () => {
                         {item.images.length > 0 && (
                           <img
                             src={
-                              "https://shope7.herokuapp.com/images/" +
+                              "http://127.0.0.1:3006/images/" +
                               item.images[0].url
                             }
                             alt="icon"
@@ -128,7 +128,7 @@ const Produit = () => {
                         className="h-52 grid place-items-center"
                       >
                         <img
-                          src={"https://shope7.herokuapp.com/images/" + item.url}
+                          src={"http://127.0.0.1:3006/images/" + item.url}
                           alt="icon"
                           className=" h-52 w-full "
                         />

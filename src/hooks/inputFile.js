@@ -1,4 +1,29 @@
 import { useState } from "react";
+export default function useFilesInput() {
+    const [url, setUrl] = useState([]);
+    const [file, setFile] = useState([]);
+  const reset = () => {
+    setUrl([]);
+    setFile([]);
+  };
+  const bind = {
+    file,
+    onChange: (e) => {
+        for (let item of e.target.files){
+          
+                setFile(l=>[...l,item]);
+                const url = URL.createObjectURL(item);
+                setUrl(l=>[...l,url]);
+            
+        }
+        
+          e.target.value = null;
+    },
+  };
+  return [url,file, bind, reset];
+}
+
+/*import { useState } from "react";
 export default function useImagesInput() {
     const [file, setFile] = useState([]);
     const [image, setimage] = useState([]);
@@ -25,4 +50,4 @@ export default function useImagesInput() {
     },
   };
   return [file,image,imageName, bind, reset,];
-}
+}*/

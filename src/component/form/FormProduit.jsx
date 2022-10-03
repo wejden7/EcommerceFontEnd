@@ -5,7 +5,7 @@ import {
   InputSelect,
   InputTextArea,
 } from "../../component";
-import { UseStateContextProduit } from "../../page/dashbored/produit/produit";
+import { UseStateContextProduit } from "../../contexts/dashbored/contextProviderProduit";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
