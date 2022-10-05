@@ -1,45 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   SnackBarComponent,
   Nav,
   CardCategorie,
   ModelComponent,
-  FormCategorie,
+  FormSousSousCategorie,
   InputSelect,
-  InputSerch
-
+  InputSerch,
 } from "../../../component";
 
-import { UseStateContext } from "../../../contexts/contextProvider";
 
 import { UseStateContextSousSousCategorie } from "../../../contexts/dashbored/contextProviderSousSousCategorie";
 
 import { AnimatePresence } from "framer-motion";
 
 const SousSousCategorie = () => {
-  const { handleClickSnackbar, severityESWI } = UseStateContext();
   const {
-    dataSousCategorie,
-    bindSouscategorie,
-    update,
-    bindlabel,
-    file,
-    bindIcon,
-    handleSubmit,
-    updateCliked,
-    SubmitCliked,
-    error,
-    updateSousSousCategorieBuId,
-    resetIcon,
-    bindSerchText,
-    dataCategorie,
-    bindRechercheSousCategorie,
-    bindRechercheCategorie,
-    dataRechercheCategorie,
-    dataRechercheTextCategorie,
+    bindSerchLabel,
+    categories,
+    bindSousCategorie,
+    bindCategorie,
+    filterCategories,
+    filterLabels,
     DeleteSousSousCategorieById,
     handleUpdate,
-    nav
+    nav,
   } = UseStateContextSousSousCategorie();
 
   return (
@@ -51,21 +36,7 @@ const SousSousCategorie = () => {
         </p>
 
         <ModelComponent>
-        <FormCategorie
-            resetIcon={resetIcon}
-            error={error}
-            handleSubmit={handleSubmit}
-            handleUpdate={updateSousSousCategorieBuId}
-            update={update}
-            submit={SubmitCliked}
-            updateCliked={updateCliked}
-            bindIcon={bindIcon}
-            bindSelect={bindSouscategorie}
-            bindlabel={bindlabel}
-            file={file}
-            data={dataSousCategorie}
-            titel="SousCategorie"
-          />
+          <FormSousSousCategorie />
         </ModelComponent>
       </div>
       <div className="bg-white  w-full gap-4 rounded p-5 flex justify-center items-center">
@@ -73,46 +44,42 @@ const SousSousCategorie = () => {
           Recherce :
         </p>
         <div className="flex  w-full gap-4 hidden sm:flex items-center">
-        <InputSelect
-              titel={"Categorie"}
-              data={dataCategorie}
-              bind={bindRechercheCategorie}
-              search={true}
-            />
-             <InputSelect
-              titel={"SousCategorie"}
-              data={dataRechercheCategorie}
-              bind={bindRechercheSousCategorie}
-              search={true}
-            />
-          
+          <InputSelect
+            titel={"Categorie"}
+            data={categories}
+            bind={bindCategorie}
+            search={true}
+          />
+          <InputSelect
+            titel={"SousCategorie"}
+            data={filterCategories}
+            bind={bindSousCategorie}
+            search={true}
+          />
         </div>
 
         <div className="w-1/2 border rounded-md  ">
-          <InputSerch
-          bind={bindSerchText}
-          />
+          <InputSerch bind={bindSerchLabel} />
         </div>
       </div>
 
       <div className="grid grid-cols-2 justify-center sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ease-in-out gap-4 mt-4">
         <AnimatePresence>
-          {dataRechercheTextCategorie.map((item, index) => {
+          {filterLabels.map((item, index) => {
             return (
               <CardCategorie
-            key={item._id}
-            item={item}
-            deleteCategoriById={DeleteSousSousCategorieById}
-            handleClickUpadet={handleUpdate}
-            next="sousSousCategorie"
-          />
-              
+                key={item._id}
+                item={item}
+                Delete={DeleteSousSousCategorieById}
+                Update={handleUpdate}
+                url="/dashbored/sousSousCategorie/"
+              />
             );
           })}
         </AnimatePresence>
       </div>
-      {(dataRechercheTextCategorie.length === 0 ||
-        dataRechercheCategorie.length === 0) && (
+      {(filterLabels.length === 0 ||
+        filterCategories.length === 0) && (
         <div className="grid  h-full place-items-center">
           <p>Cet Categorie Et Vide </p>
         </div>

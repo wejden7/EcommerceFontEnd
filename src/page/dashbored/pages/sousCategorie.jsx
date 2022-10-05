@@ -3,7 +3,7 @@ import {
   SnackBarComponent,
   Nav,
   ModelComponent,
-  FormCategorie,
+  FormSousCategorie,
   CardCategorie,
   InputSelect,
 } from "../../../component";
@@ -11,18 +11,7 @@ import { AnimatePresence } from "framer-motion";
 import { UseStateContextSousCategorie } from "../../../contexts/dashbored/contextProviderSousCategorie.js";
 const SousCategorie = () => {
   const {
-    bindcategorie,
-    update,
-    bindlabel,
-    file,
-    bindIcon,
-    handleSubmit,
-    updateCliked,
-    SubmitCliked,
-    error,
-    updateSousCategorieBuId,
-    resetIcon,
-    dataCategorie,
+    categories,
     bindRechercheCategorie,
     dataRechercheCategorie,
     DeleteSousCategorieById,
@@ -39,20 +28,8 @@ const SousCategorie = () => {
         </p>
 
         <ModelComponent>
-          <FormCategorie
-            resetIcon={resetIcon}
-            error={error}
-            handleSubmit={handleSubmit}
-            handleUpdate={updateSousCategorieBuId}
-            update={update}
-            submit={SubmitCliked}
-            updateCliked={updateCliked}
-            bindIcon={bindIcon}
-            bindSelect={bindcategorie}
-            bindlabel={bindlabel}
-            file={file}
-            data={dataCategorie}
-            titel="Categorie"
+          <FormSousCategorie
+           
           />
         </ModelComponent>
       </div>
@@ -63,7 +40,7 @@ const SousCategorie = () => {
           <div className="w-60">
             <InputSelect
               titel={"Categorie"}
-              data={dataCategorie}
+              data={categories}
               bind={bindRechercheCategorie}
               search={true}
             />
@@ -78,9 +55,9 @@ const SousCategorie = () => {
               <CardCategorie
                 key={item._id}
                 item={item}
-                deleteCategoriById={DeleteSousCategorieById}
-                handleClickUpadet={handleUpdate}
-                next="sousSousCategorie"
+                Delete={DeleteSousCategorieById}
+                Update={handleUpdate}
+                url="sousSousCategorie"
               />
             );
           })}

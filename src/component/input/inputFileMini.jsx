@@ -2,19 +2,19 @@ import React from "react"
 import {
     AiOutlineCloudUpload
   } from "react-icons/ai";
-const InputFileMini = ({bind,saveCliked,ErrorLogo,multiple})=>{
+const InputFileMini = ({bind, file, restFile, multiple, submit ,update})=>{
 
     return (
         <label
                     className={
-                      saveCliked && ErrorLogo
+                     ( submit && !update && file[0]==null)
                         ? "border bg-white w-min border-red-500 relative h-10  grid place-items-center   rounded cursor-pointer"
                         : "border bg-white w-min border-gray-400 relative h-10  grid place-items-center   rounded cursor-pointer"
                     }
                   >
                     <AiOutlineCloudUpload
                       className={
-                        saveCliked && ErrorLogo 
+                        ( submit && !update && file[0]==null)
                           ? "absolute text-2xl text-red-500  "
                           : "absolute text-2xl  opacity-50 "
                       }

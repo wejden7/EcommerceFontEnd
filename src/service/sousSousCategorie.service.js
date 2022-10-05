@@ -1,22 +1,25 @@
 import axiosConfig from "../config/axioConfig";
 
-export async function create(icon,label,categorie) {
+export async function create(label ,icon,categorie,onUploadProgress) {
+
   const data = new FormData();
   data.append("icon", icon[0]);
   data.append("label", label);
   data.append("souscategorie", categorie);
-  const headers = {
-    "Content-Type": "multipart/form-data",
+   const config = {
+    onUploadProgress: onUploadProgress,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
   };
   return new Promise(async (resolve, reject) => {
     await axiosConfig
-      .post("/sousSousCategorie", data, headers)
+      .post("/sousSousCategorie", data, config)
       .then(async (res) => {
         console.log("sucsses");
         resolve(res);
       })
       .catch((error) => {
-       
         reject(error);
       });
   });
@@ -60,18 +63,21 @@ export async function deleteById(id) {
   });
 }
 
-export async function updateById(id,icon,label,iconUpadte,idcategorie) {
-  const categorie = new FormData();
-  categorie.append("icon", icon[0]);
-  categorie.append("label", label);
-  categorie.append("iconUpadte", iconUpadte);
-  categorie.append("souscategorie", idcategorie);
-  const headers = {
-    "Content-Type": "multipart/form-data",
+export async function updateById(label,icon,categorie,id,iconUpadte,onUploadProgress) {
+  const data = new FormData();
+  data.append("icon", icon[0]);
+  data.append("label", label);
+  data.append("iconUpadte", iconUpadte);
+  data.append("souscategorie", categorie);
+  const config = {
+    onUploadProgress: onUploadProgress,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
   };
   return new Promise(async (resolve, reject) => {
     await axiosConfig
-      .put("/sousSousCategorie/"+id,categorie, headers)
+      .put("/sousSousCategorie/"+id,data, config)
       .then(async (res) => {
         console.log("sucsses");
         resolve(res.data);

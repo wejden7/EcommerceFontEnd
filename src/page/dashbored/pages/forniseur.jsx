@@ -17,21 +17,11 @@ const columns = [
 const Forniseur = () => {
   const {
     nav,
-    UpdateForniseur,
-    update,
-    updateFunction,
+    handelUpdate,
     deleteForniseur,
     forniseurSelected,
     itemSelect,
     forniseur,
-    createForniseur,
-    bindName,
-    bindEmail,
-    bindTel,
-    bindAdresse,
-    errorMessage,
-    saveCliked,
-    updateCliked,
   } = UseStateContextForniseur();
   return (
     <div className="m-1 md:m-4">
@@ -43,12 +33,12 @@ const Forniseur = () => {
               <div className="">
               <Tooltip  className={forniseurSelected.length===0?"rounded-full p-2 ":" rounded-full p-2 hover:shadow-lg "}  title={forniseurSelected.length===0?"":"Delete"} disabled={forniseurSelected.length===0?true:false}>
                   <button  onClick={deleteForniseur}>
-                    <MdOutlineDeleteOutline className={forniseurSelected.length===0 ?" duration-700 ease-in-out text-red-300 text-white text-2xl": " duration-700 ease-in-out text-red-500 text-white text-2xl"}/>
+                    <MdOutlineDeleteOutline className={forniseurSelected.length===0 ?" duration-700 ease-in-out text-red-300 text-white text-2xl": " duration-700 ease-in-out text-red-600 text-white text-2xl"}/>
                   </button>
                 </Tooltip>
-                <Tooltip  className={forniseurSelected.length!=1?"rounded-full p-2 ":" rounded-full p-2 hover:shadow-lg "}  title={forniseurSelected.length!=1?"":"update"} disabled={forniseurSelected.length!=1?true:false}>
-                  <button  onClick={updateFunction}>
-                    <MdUpdate className={forniseurSelected.length!=1 ?" duration-700 ease-in-out text-green-300 text-white text-2xl": " duration-700 ease-in-out text-green-500 text-white text-2xl"}/>
+                <Tooltip  className={forniseurSelected.length!==1?"rounded-full p-2 ":" rounded-full p-2 hover:shadow-lg "}  title={forniseurSelected.length!==1?"":"update"} disabled={forniseurSelected.length!==1?true:false}>
+                  <button  onClick={handelUpdate}>
+                    <MdUpdate className={forniseurSelected.length!==1 ?" duration-700 ease-in-out text-green-300 text-white text-2xl": " duration-700 ease-in-out text-green-500 text-white text-2xl"}/>
                   </button>
                 </Tooltip>
               </div>
@@ -69,16 +59,7 @@ const Forniseur = () => {
         </div>
         <div className=" w-full h-full md:col-span-2 bg-white rounded  py-5 ">
           <FormForniseur 
-              bindname={bindName}
-              bindemail={bindEmail}
-              bindtel={bindTel} 
-              bindadresse={bindAdresse}
-              savecliked={saveCliked}
-              updatecliked={updateCliked}
-              updateforniseur={UpdateForniseur}
-              createforniseur={createForniseur}
-              update={update}
-              error={errorMessage}
+           
               />
         </div>
       </div>

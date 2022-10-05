@@ -1,4 +1,4 @@
-//export { default as Form}from '';
+//export { default as InputNumber}from '';
 export { default as Linear}from './progress/linear';
 export { default as  FilterMotion}from './framer-motion/filterMotion';
 export { default as Image }from './image/image';
@@ -17,12 +17,15 @@ export { default as SnackBarComponent}from './snakBar/SnackBarComponent'
 export { default as ModelComponent}from './modal/Model'
 
 //Form
-export { default as FormCategorie}from './form/FormCategorie'
-export { default as FormForniseur} from './form/FormForniseur'
+export { default as FormCategorie}from './form/FormCategorie/FormCategorie.jsx'
+export { default as FormSousCategorie}from './form/FormSousCategorie/FormSousCategorie.jsx';
+export { default as FormSousSousCategorie}from './form/FormSousSousCategorie/FormSousSousCategorie.jsx';
+export { default as FormForniseur} from './form/FormForniseur/FormForniseur.jsx'
 export { default as FormProduit} from './form/FormProduit'
 
 //Input
 export { default as InputText} from './input/inputText'
+export { default as InputNumber}from './input/inputNumber';
 export { default as InputFileMini} from './input/inputFileMini' 
 export { default as InputFile} from './input/inpuFile'
 export { default as InputSelect} from './input/InputSelect'

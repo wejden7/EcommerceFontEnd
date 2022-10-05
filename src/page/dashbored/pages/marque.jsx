@@ -17,19 +17,18 @@ const Marque = () => {
     bindLabel,
     bindLogo,
     file,
-    saveCliked,
+    submit,
     handelSave,
-    error,
-    marquesSearch,
+    filterMarque,
     bindSearch,
     deleteMarque,
     handelUpdate,
     update,
     updateMarque,
-    updateCliked,
     reset,
     progress,
     loding,
+    logo
   } = UseStateContextMarque();
 
   return (
@@ -42,16 +41,16 @@ const Marque = () => {
             <div className="col-span-1 ">
               <InputText
                 bind={bindLabel}
-                saveCliked={saveCliked}
-                updateCliked={updateCliked}
-                errorLabel={error.label}
+                submit={submit}
+                value={label}
               />
             </div>
             <div className="col-span-1    rounded">
               <InputFileMini
                 bind={bindLogo}
-                saveCliked={saveCliked}
-                ErrorLogo={error.logo != ""}
+                file ={logo}
+                submit={submit}
+                update={update}
               />
             </div>
           </form>
@@ -73,7 +72,7 @@ const Marque = () => {
                 progress={progress}
               />
             )}
-            {marquesSearch.map((item, index) => {
+            {filterMarque.map((item, index) => {
               return (
                 <CardMarque
                   key={item._id}

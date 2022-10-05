@@ -1,6 +1,6 @@
 import React from "react";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
+import {isEmpty} from '../../validateur/validator'
+import {Image } from '../'
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
@@ -14,7 +14,18 @@ const MenuProps = {
     },
   },
 };
-const InputSelect = ({ titel, bind, data, error, SubmitCliked, search }) => {
+
+const MessageError = ({msg})=> <p className="text-right text-xs text-red-500">{msg}</p>
+
+const Error =({submit,value})=>{
+  if(submit)
+    if(isEmpty(value))
+      return <MessageError msg="required"/>
+      return null;
+
+}
+
+const InputSelect = ({ titel, bind, data, value , submit, search }) => {
   return (
     <FormControl className="border w-full rounded" size="small">
       <Select
@@ -39,26 +50,25 @@ const InputSelect = ({ titel, bind, data, error, SubmitCliked, search }) => {
           <MenuItem key={name._id} value={name._id}>
             <div className="flex items-center">
               {(name.icon || name.logo) && (
-                <img
+                <Image
                   src={
                     name.icon
-                      ? "https://shope7.herokuapp.com/icons/" + name.icon
+                      ? "/icons/" + name.icon
                       : name.logo
-                      ? "https://shope7.herokuapp.com/logos/" + name.logo
+                      ? "/logos/" + name.logo
                       : ""
                   }
                   alt="icon"
-                  className="w-4 h-4 mr-2 text-white"
+                 w={4}
+                 h={4}
                 />
               )}
-              {name.name || name.label}
+             <p className="ml-4 tracking-wider">{name.name || name.label}</p> 
             </div>
           </MenuItem>
         ))}
       </Select>
-      {SubmitCliked && (
-        <p className="text-right text-xs text-red-500">{error}</p>
-      )}
+      <Error submit={submit} value={value} />
     </FormControl>
   );
 };

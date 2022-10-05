@@ -1,5 +1,5 @@
 import { useState } from "react";
-export default function useFilesInput() {
+export default function useFilesInput(multiple) {
     const [url, setUrl] = useState([]);
     const [file, setFile] = useState([]);
   const reset = () => {
@@ -9,6 +9,11 @@ export default function useFilesInput() {
   const bind = {
     file,
     onChange: (e) => {
+      if(!multiple){
+        setFile(l=>[]);
+        setUrl(l=>[]);
+      }
+
         for (let item of e.target.files){
           
                 setFile(l=>[...l,item]);

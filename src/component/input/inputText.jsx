@@ -1,23 +1,33 @@
-import React from "react"
+import React from "react";
+import { isEmail, isEmpty } from "../../validateur/validator";
 
+const MsgError = ({ msg }) => (
+  <p className="text-xs text-red-500 text-end">{msg}</p>
+);
 
-const InputText = ({bind,saveCliked,updateCliked,errorLabel,placeholder})=>{
+const Error = ({ submit, value, type }) => {
+  if (submit) {
+    if (isEmpty(value)) {
+      return <MsgError msg="required" />;
+    } else if (type === "Email" && !isEmail(value)) {
+      return <MsgError msg="Email invalid" />;
+    }
+  }
+  return null;
+};
 
-    return(
-        <div>
-        <input
-                    {...bind}
-                    placeholder={placeholder||"Label"}
-                    className=" h-10 w-full appearance-none border rounded border-gray-400 hover:border-black hover:cursor-pointer  py-2 px-3 text-gray-700 text-base leading-tight focus:outline-none "
-                    type="text"
-                  />
-                  {(saveCliked || updateCliked) && (
-                    <p className="text-xs text-red-500 text-end">
-                      {errorLabel}
-                    </p>
-                  )}
-        </div>
-    )
-}
+const InputText = ({ bind, value, submit, placeholder, type }) => {
+  return (
+    <div>
+      <input
+        {...bind}
+        placeholder={placeholder || "Label"}
+        className=" h-10 w-full appearance-none border rounded border-gray-400 hover:border-black hover:cursor-pointer  py-2 px-3 text-gray-700 text-base leading-tight focus:outline-none "
+        type="text"
+      />
+      <Error submit={submit} value={value} type={type} />
+    </div>
+  );
+};
 
-export default  InputText;
+export default InputText;

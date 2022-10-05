@@ -7,7 +7,6 @@ import  { UseStateContext } from '../../contexts/contextProvider'
 import  { UseStateContextCategorie } from '../../contexts/dashbored/contextProviderCategorie'
 import  { UseStateContextSousCategorie } from '../../contexts/dashbored/contextProviderSousCategorie'
 import  { UseStateContextSousSousCategorie } from '../../contexts/dashbored/contextProviderSousSousCategorie'
-import  { UseStateContextProduit } from '../../contexts/dashbored/contextProviderProduit'
 const style = {
   position: "absolute",
   top: "50%",
@@ -17,13 +16,13 @@ const style = {
 };
 const ModelComponent = ({ children }) => {
 const {handleCloseModel,handleOpenModel,openModel}=UseStateContext();
-const {resetForm}=UseStateContextCategorie()||UseStateContextSousCategorie()||UseStateContextSousSousCategorie()||UseStateContextProduit()
+const {resetUpdate}=UseStateContextCategorie()||UseStateContextSousCategorie()||UseStateContextSousSousCategorie()||{}
 
   return (
     <div>
       <OpenButton
         onClick={() => {
-          resetForm()
+          resetUpdate()
           handleOpenModel()}}
         icon={<AiOutlinePlus />}
         title="New Categorie"

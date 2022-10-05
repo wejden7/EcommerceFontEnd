@@ -1,15 +1,19 @@
 import axiosConfig from "../config/axioConfig";
 
-export async function create(label, icon) {
+export async function create(label, icon,onUploadProgress) {
   const categorie = new FormData();
   categorie.append("icon", icon[0]);
   categorie.append("label", label);
-  const headers = {
-    "Content-Type": "multipart/form-data",
+  const config = {
+    onUploadProgress: onUploadProgress,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
   };
+
   return new Promise(async (resolve, reject) => {
     await axiosConfig
-      .post("/categorie", categorie, headers)
+      .post("/categorie", categorie, config)
       .then(async (res) => {
         console.log("sucsses");
         resolve(res.data.token);
@@ -55,17 +59,22 @@ export async function deleteById(id) {
   });
 }
 
-export async function updateById(label, icon ,id,iconUpadte) {
+export async function updateById(label, icon ,id,iconUpadte,onUploadProgress) {
+  console.log(id)
   const categorie = new FormData();
   categorie.append("icon", icon[0]);
   categorie.append("label", label);
   categorie.append("iconUpadte", iconUpadte);
-  const headers = {
-    "Content-Type": "multipart/form-data",
+  const config = {
+    onUploadProgress: onUploadProgress,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
   };
+
   return new Promise(async (resolve, reject) => {
     await axiosConfig
-      .put("/categorie/"+id, categorie, headers)
+      .put("/categorie/"+id, categorie, config)
       .then(async (res) => {
         console.log("sucsses");
         resolve(res);
