@@ -22,6 +22,8 @@ export { default as FormSousCategorie}from './form/FormSousCategorie/FormSousCat
 export { default as FormSousSousCategorie}from './form/FormSousSousCategorie/FormSousSousCategorie.jsx';
 export { default as FormForniseur} from './form/FormForniseur/FormForniseur.jsx'
 export { default as FormProduit} from './form/FormProduit'
+export { default as FormMarque } from './form/FormMarque/FormMarque.jsx';
+
 
 //Input
 export { default as InputText} from './input/inputText'

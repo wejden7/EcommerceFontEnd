@@ -1,7 +1,8 @@
 import React from "react";
 import { FilterMotion } from "../../component";
-import { AiOutlineClose, AiOutlineFileImage } from "react-icons/ai";
+import { AiOutlineFileImage } from "react-icons/ai";
 import { Linear } from "../../component";
+import { UseStateContextFormMarque } from "../form/FormMarque/FormMarque";
 
 const Button = ({ onClick, color, label }) => (
   <button
@@ -13,63 +14,81 @@ const Button = ({ onClick, color, label }) => (
   </button>
 );
 
-const ButtonClose = ({ onClick }) => (
-  <button
-    onClick={onClick}
-    className="absolute top-1 right-1  rounded-full w-6 h-6 p-1 bg-red-50 text-red-500 hover:drop-shadow-md cursor-pointer"
-  >
-    <AiOutlineClose />
-  </button>
+const InputLabel = ({ bind }) => (
+  <input
+    type="text"
+    {...bind}
+    className="w-full py-2 rounded  tracking-wider text-center font-bold focus:outline-none"
+    placeholder="Nom de marque"
+  />
 );
 
-const Titel = ({ titel }) => (
-  <p className=" pt-1 font-bold tracking-wider text-center ">{titel}</p>
-);
-
-const ImageCard = ({ file }) => (
-  <div className=" grid justify-center   ">
-    {file ? (
-      <img className=" w-40 h-40  " alt="uploadImage" src={file} />
-    ) : (
-      <AiOutlineFileImage className="w-8 h-8 mt-16 mb-16" />
-    )}
+const ImageCard = ({ file, bind }) => (
+  <div className="w-full grid grid-cols-1    h-full place-items-center ">
+    <label className="w-full  relative">
+      <div className="h-40  grid grid-cols-1  place-items-center">
+        {file[0] ? (
+          <img
+            className="   h-40 w-full px-2 "
+            alt="uploadImage"
+            src={file[0]}
+          />
+        ) : (
+          <AiOutlineFileImage className="w-full h-8  " />
+        )}
+      </div>
+      <input
+        type="file"
+        {...bind}
+        className="opacity-0 absolute  w-10   top-0"
+      />
+    </label>
   </div>
 );
 
-const ButtonCard = ({ condition, Save, Update }) => (
-  <div className="  grid grid-cols-2 border border-white  w-full justify-center  divide-x">
-    {!condition ? (
-      <Button onClick={Save} color="blue" label="Save" />
-    ) : (
-      <Button  onClick={Update} color="green" label="Update" />
-    )}
-  </div>
-);
-const CardNewMarque = ({
-  update,
-  file,
-  label,
-  reset,
-  SaveFunction,
-  UpdateFunction,
-  loding,
-  progress,
-}) => {
+const ButtonCard = () => {
+  const {
+    update,
+    resetForm,
+    formValidUpdate,
+    createMarque,
+    updateMarque,
+    formValid,
+  } = UseStateContextFormMarque();
+  return (
+    <div className="  grid grid-cols-2 border border-white  w-full justify-center">
+      {!update ? (
+        !formValid ? (
+          <Button onClick={resetForm} color="red" label="Clear" />
+        ) : (
+          <Button onClick={createMarque} color="blue" label="Save" />
+        )
+      ) : !formValidUpdate ? (
+        <Button onClick={resetForm} color="red" label="Clear" />
+      ) : (
+        <Button onClick={updateMarque} color="green" label="Update" />
+      )}
+    </div>
+  );
+};
+const CardNewMarque = ({}) => {
+  const {
+    loding,
+    progress,
+    file,
+    bindLogo,
+    bindLabel,
+  } = UseStateContextFormMarque();
   return (
     <FilterMotion>
       <div
         key={1}
-        className="relative grid place-items-center border-2  bg-white drop-shadow-xl rounded  group"
+        className="relative grid place-items-center  bg-white rounded   group"
       >
         <Linear loding={loding} value={progress} />
-        <ButtonClose onClick={reset} />
-        <Titel titel={label} />
-        <ImageCard file={file} />
-        <ButtonCard
-          condition={update}
-          Save={SaveFunction}
-          Update={UpdateFunction}
-        />
+        <InputLabel bind={bindLabel} />
+        <ImageCard file={file} bind={bindLogo} />
+        <ButtonCard />
       </div>
     </FilterMotion>
   );

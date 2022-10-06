@@ -13,7 +13,7 @@ const Button = ({ onClick, label, params, color }) => (
 );
 
 const Titel = ({ label }) => (
-  <p className=" pt-1 font-bold tracking-wider text-center ">{label}</p>
+  <p className=" py-2 font-bold tracking-wider text-center ">{label}</p>
 );
 
 const ImageCard = ({ item }) => (
@@ -32,7 +32,10 @@ const ButtonCard = ({ item, Update, Delete }) => (
 const CardMarque = ({ item, Update, Delete }) => {
   return (
     <FilterMotion>
-      <div key={item._id} className=" grid place-items-center  bg-white  rounded  group">
+      <div
+        key={item._id}
+        className=" grid place-items-center  bg-white  rounded  group"
+      >
         <Titel label={item.label} />
         <ImageCard item={item} />
         <ButtonCard item={item} Update={Update} Delete={Delete} />
