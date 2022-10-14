@@ -1,6 +1,7 @@
-//export { default as InputNumber}from '';
+//export { default as loderMotion}from '';
 export { default as Linear}from './progress/linear';
 export { default as  FilterMotion}from './framer-motion/filterMotion';
+export { default as LoderMotion}from './framer-motion/loderMotion';
 export { default as Image }from './image/image';
 export { default as Sidebar } from './sidebar/sidebar';
 export { default as Navbar } from './navBar/navbar';
@@ -21,7 +22,7 @@ export { default as FormCategorie}from './form/FormCategorie/FormCategorie.jsx'
 export { default as FormSousCategorie}from './form/FormSousCategorie/FormSousCategorie.jsx';
 export { default as FormSousSousCategorie}from './form/FormSousSousCategorie/FormSousSousCategorie.jsx';
 export { default as FormForniseur} from './form/FormForniseur/FormForniseur.jsx'
-export { default as FormProduit} from './form/FormProduit'
+export { default as FormProduit } from './form/FormProduit/FormProduit.jsx'
 export { default as FormMarque } from './form/FormMarque/FormMarque.jsx';
 
 

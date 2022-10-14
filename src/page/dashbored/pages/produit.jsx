@@ -1,5 +1,6 @@
 import React from "react";
-import { Nav, FormProduit, OpenButton } from "../../../component";
+import { Nav, FormProduit, OpenButton ,SnackBarComponent} from "../../../component";
+import {ContextProviderFormProduit} from "../../../component/form/FormProduit/FormProduit"
 import { UseStateContextProduit } from "../../../contexts/dashbored/contextProviderProduit";
 import {
   AiOutlinePlus,
@@ -8,27 +9,33 @@ import {
   AiOutlineShoppingCart,
   AiOutlineDelete,
 } from "react-icons/ai";
+import {MdUpdate,MdOutlineVisibility,MdOutlineVisibilityOff} from "react-icons/md";
 import { AnimatePresence, motion } from "framer-motion";
 const Produit = () => {
+  console.log("Produit")
   const {
     nav,
     openNewForm,
     openCloseForm,
-    Produits,
+    produits,
     deleteProduitById,
     openProduit,
     openDetailProduit,
-    Produit,
+    produit,
+    updateProduct,
+    incriment,
+        count
   } = UseStateContextProduit();
   return (
     <div className="m-3 grid gap-2">
       <Nav Nav={nav} />
+      <button onClick={incriment} className="br-blue rounded py-2 px-3 ">{count}</button>
       <div className="w-full h-full grid  gap-2 rounded ">
         <div className="bg-blue-700 w-full mt-1 p-5 rounded-md flex items-center justify-between">
           <p className="text-xl font-bold text-white tracking-wider">Produit</p>
           <OpenButton
             title={"new Produit"}
-            customFunc={openCloseForm}
+            onClick={openCloseForm}
             icon={<AiOutlinePlus />}
           />
         </div>
@@ -39,7 +46,9 @@ const Produit = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
+              <ContextProviderFormProduit>
               <FormProduit />
+              </ContextProviderFormProduit>
             </motion.div>
           )}
 
@@ -50,7 +59,7 @@ const Produit = () => {
               exit={{ opacity: 0 }}
             >
               <div className="grid place-items-center w-full h-full sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 mb-4">
-                {Produits.map((item) => {
+                {produits.map((item) => {
                   return (
                     <div className=" border bg-white w-full  " key={item._id}>
                       <div className="h-52 grid place-items-center">
@@ -83,10 +92,10 @@ const Produit = () => {
                       </div>
                       <div className="grid  grid-cols-4 place-items-center mt-4	mx-2  ">
                         <div className=" text-xl group  p-2 grid place-items-center cursor-pointer ">
-                          <AiOutlineHeart className="group-hover:scale-110 group-hover:text-rose-500" />
+                          <MdOutlineVisibility className="group-hover:scale-110 group-hover:text-rose-500" />
                         </div>
-                        <div className=" text-xl group  p-2 grid place-items-center cursor-pointer">
-                          <AiOutlineShoppingCart className="group-hover:scale-110 group-hover:text-blue-500" />
+                        <div onClick={()=>updateProduct(item)} className=" text-xl group  p-2 grid place-items-center cursor-pointer">
+                          <MdUpdate className="group-hover:scale-110 group-hover:text-blue-500" />
                         </div>
                         <div
                           className=" text-xl group  p-2 grid place-items-center cursor-pointer"
@@ -187,6 +196,7 @@ const Produit = () => {
           )}
         </>
       </div>
+      <SnackBarComponent/>
     </div>
   );
 };

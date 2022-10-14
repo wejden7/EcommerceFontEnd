@@ -1,6 +1,6 @@
 import React from "react"
 import {
-    AiOutlineCloudUpload
+  AiOutlineUpload
   } from "react-icons/ai";
 const InputFileMini = ({bind, file, restFile, multiple, submit ,update})=>{
 
@@ -12,7 +12,7 @@ const InputFileMini = ({bind, file, restFile, multiple, submit ,update})=>{
                         : "border bg-white w-min border-gray-400 relative h-10  grid place-items-center   rounded cursor-pointer"
                     }
                   >
-                    <AiOutlineCloudUpload
+                    <AiOutlineUpload
                       className={
                         ( submit && !update && file[0]==null)
                           ? "absolute text-2xl text-red-500  "

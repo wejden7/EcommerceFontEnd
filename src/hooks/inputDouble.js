@@ -1,6 +1,6 @@
 import { useState } from "react";
-import {isNumber} from '../validateur/validator'
-export default function useNumberInput({initialValue,max}) {
+import {isDouble} from '../validateur/validator'
+export default function useDoubleInput(initialValue) {
   const [value, setValue] = useState(initialValue);
   const reset = () => {
     setValue(initialValue);
@@ -9,7 +9,7 @@ export default function useNumberInput({initialValue,max}) {
     value,
     onChange: (e) => {
         const number = e.target.value;
-        if(isNumber(number)&&( number.length<=max || !max)){
+        if(isDouble(number)||number===""){
             setValue(number);
         }
       

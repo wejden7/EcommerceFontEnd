@@ -22,7 +22,7 @@ export async function create(name,prix,quantity,tva,categorie,marque,forniseur,d
   const config = {
     onUploadProgress: onUploadProgress,
     headers: {
-      "Content-Type": "multipart/form-data",
+      'Content-Type': 'Application/json',
     },
   };
  console.log("true 2")
@@ -82,4 +82,40 @@ export async function deleteById(id) {
         reject(error);
       });
   });
+}
+
+export async function update(id,name,prix,tva,quantity,categorie,forniseur,marque,onUploadProgress) {
+
+  const   produit={
+    "name":name,
+    "prix": prix,
+    "tva": tva,
+    "quantity": quantity,
+    "categorie": categorie,
+    "forniseur": forniseur,
+    "marque": marque,
   }
+
+  console.log(produit)
+
+    const config = {
+      
+      onUploadProgress: onUploadProgress,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      data:produit
+    };
+    
+    return new Promise(async (resolve, reject) => {
+      await axiosConfig
+        .put("/produit/"+id,config)
+        .then(async (res) => {
+          resolve(res);
+        })
+        .catch((error) => {
+         
+          reject(error);
+        });
+    });
+    }

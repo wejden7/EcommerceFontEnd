@@ -1,5 +1,5 @@
 import React from "react";
-import { InputText, InputFileMini, CardNewMarque } from "../../../component";
+import { CardNewMarque } from "../../../component";
 import { ContextProviderFormMarque } from "./FormMarque";
 
 const FormMarque = () => {

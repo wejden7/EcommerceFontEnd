@@ -15,13 +15,13 @@ const MenuProps = {
   },
 };
 
-const MessageError = ({msg})=> <p className="text-right text-xs text-red-500">{msg}</p>
+const MessageError = ({msg})=> <p className="text-right h-4 text-xs text-red-500">{msg}</p>
 
-const Error =({submit,value})=>{
+const Error =({submit,value,titel})=>{
   if(submit)
     if(isEmpty(value))
-      return <MessageError msg="required"/>
-      return null;
+      return <MessageError msg={`${titel} is Required`}/>
+      return <MessageError msg=""/>;
 
 }
 
@@ -30,7 +30,7 @@ const InputSelect = ({ titel, bind, data, value , submit, search }) => {
     <FormControl className="border w-full rounded" size="small">
       <Select
         placeholder={titel}
-        className="bg-white "
+        className="bg-white mb-1"
         labelId="demo-multiple-name-label"
         id="demo-multiple-name"
         displayEmpty
@@ -42,7 +42,7 @@ const InputSelect = ({ titel, bind, data, value , submit, search }) => {
             All
           </MenuItem>
         ) : (
-          <MenuItem disabled={true} value="">
+          <MenuItem disabled={true} value="null">
             <em className="text-gray-400">{titel}</em>
           </MenuItem>
         )}
@@ -68,7 +68,7 @@ const InputSelect = ({ titel, bind, data, value , submit, search }) => {
           </MenuItem>
         ))}
       </Select>
-      <Error submit={submit} value={value} />
+      <Error submit={submit} value={value} titel={titel} />
     </FormControl>
   );
 };

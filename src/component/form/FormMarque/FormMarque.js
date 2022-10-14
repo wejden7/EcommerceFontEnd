@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import React,{ useState, useEffect, createContext, useContext } from "react";
 import useTextInput from "../../../hooks/inputText";
 import useLogoInput from "../../../hooks/inputFile";
 import { isEmpty, isEmptyFile } from "../../../validateur/validator";

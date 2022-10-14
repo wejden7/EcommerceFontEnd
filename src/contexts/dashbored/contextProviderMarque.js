@@ -28,14 +28,15 @@ export const ContextProviderMarque = ({ children }) => {
   const [search, bindSearch, resetSearch, setSearch] = useTextInput("");
   const [item, setItem] = useState();
   const [update, setUpdate] = useState(false);
- 
+  const [loders, setLoders] = useState(false);
 
   const reset = () => {
     setItem({});
     setUpdate(false);
   };
-  
+
   useEffect(() => {
+    setLoders(true);
     getAllMarque();
   }, []);
 
@@ -47,18 +48,18 @@ export const ContextProviderMarque = ({ children }) => {
     setFilterMarque((art) => tab);
   }, [marques, search]);
 
-
   const handelUpdate = (_) => {
     setUpdate(true);
     setItem(_);
   };
 
-
-
   const getAllMarque = async () => {
+   
     await getAll()
       .then((result) => {
         setMarques(result.data.data);
+
+        setLoders(false);
       })
       .catch((error) => {
         setMarques([]);
@@ -76,8 +77,6 @@ export const ContextProviderMarque = ({ children }) => {
       });
   };
 
-
-
   return (
     <StateContext.Provider
       value={{
@@ -89,8 +88,8 @@ export const ContextProviderMarque = ({ children }) => {
         deleteMarque,
         update,
         getAllMarque,
-        handelUpdate
-        
+        handelUpdate,
+        loders,
       }}
     >
       {children}

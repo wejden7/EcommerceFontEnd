@@ -25,7 +25,7 @@ export default function useFilesInput(multiple) {
           e.target.value = null;
     },
   };
-  return [url,file, bind, reset];
+  return [url,file, bind, reset,setUrl,setFile];
 }
 
 /*import { useState } from "react";
