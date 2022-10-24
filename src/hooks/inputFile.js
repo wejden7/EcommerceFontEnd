@@ -6,6 +6,15 @@ export default function useFilesInput(multiple) {
     setUrl([]);
     setFile([]);
   };
+  const deleteByIndex = (index) =>{
+    
+    const newFile = file.filter((_,i)=>i!== index)
+    const newUrl = url.filter((_,i)=>i!== index)
+    console.log(newFile)
+    setUrl(newUrl)
+    setFile(newFile)
+
+  }
   const bind = {
     file,
     onChange: (e) => {
@@ -25,34 +34,6 @@ export default function useFilesInput(multiple) {
           e.target.value = null;
     },
   };
-  return [url,file, bind, reset,setUrl,setFile];
+  return [url,file, bind, reset,deleteByIndex,setUrl,setFile];
 }
 
-/*import { useState } from "react";
-export default function useImagesInput() {
-    const [file, setFile] = useState([]);
-    const [image, setimage] = useState([]);
-    const [imageName, setimageName] = useState([]);
-  const reset = () => {
-    setFile([]);
-    setimage([]);
-    setimageName([])
-  };
-  const bind = {
-    image,
-    onChange: (e) => {
-        console.log(e.target.files)
-        for (let item of e.target.files){
-          
-                setimage(l=>[...l,item]);
-                setimageName(l=>[...l,item.name]);
-                const file = URL.createObjectURL(item);
-                setFile(l=>[...l,file]);
-            
-        }
-        
-          e.target.value = null;
-    },
-  };
-  return [file,image,imageName, bind, reset,];
-}*/

@@ -52,7 +52,7 @@ export const ContextProviderForniseur = ({ children }) => {
     await getAll()
       .then((result) => {
         resetUpdate();
-        setForniseur((l) => result.data.data);
+        setForniseur(result);
       })
       .catch((error) => {
        

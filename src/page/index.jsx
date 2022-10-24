@@ -8,4 +8,5 @@ export { default as SousCategorie } from './dashbored/pages/sousCategorie';
 export { default as SousSousCategorie } from './dashbored/pages/sousSousCategorie';
 export { default as Forniseur } from './dashbored/pages/forniseur'
 export { default as Marque } from '../page/dashbored/pages/marque'
-export { default as Produit } from '../page/dashbored/pages/produit'
+export { default as Produit } from './dashbored/pages/produit/produit'
+export { default as ProduitDetailler } from './dashbored/pages/produit/produitDetailler'

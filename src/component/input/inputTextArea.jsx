@@ -17,7 +17,7 @@ const InputTextArea = ({ bind, submit,value,placeholder}) => {
         className="w-full border mb-0 py-2 px-3 border-gray-400 rounded hover:border-black hover:cursor-pointer focus:outline-none "
         name=""
         id=""
-        rows="3"
+        rows="15"
         placeholder={placeholder}
       />
       <Error submit={submit} value={value} placeholder={placeholder}/>

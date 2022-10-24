@@ -129,7 +129,7 @@ export const ContextProviderSousSousCategorie = ({ children }) => {
     await getAllSousSousCategorieService()
       .then((result) => {
         resetUpdate();
-        setSousSousCategories(result.categories);
+        setSousSousCategories(result);
       })
       .catch((error) => {
         setSousSousCategories([]);

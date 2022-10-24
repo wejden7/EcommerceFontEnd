@@ -55,7 +55,7 @@ export const isEmpty =(_)=>{
 }
 
 export const isEmptyFile =(_)=>{
-  if(!_){
+  if(!_ || _.length===0){
     return true;
   }
   return false

@@ -52,12 +52,12 @@ export const ContextProviderMarque = ({ children }) => {
     setUpdate(true);
     setItem(_);
   };
-
+ 
   const getAllMarque = async () => {
    
     await getAll()
       .then((result) => {
-        setMarques(result.data.data);
+        setMarques(result);
 
         setLoders(false);
       })

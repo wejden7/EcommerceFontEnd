@@ -1,13 +1,13 @@
 import React from "react";
+
 import {  Routes, Route } from "react-router-dom";
 import {ContextProvider} from './contexts/dashbored/contextProviderCategorie'
 import {ContextProviderSouCategorie} from './contexts/dashbored/contextProviderSousCategorie'
 import {ContextProviderSousSousCategorie} from './contexts/dashbored/contextProviderSousSousCategorie'
 import {ContextProviderForniseur} from './contexts/dashbored/contextProviderForniseur'
 import {ContextProviderMarque} from './contexts/dashbored/contextProviderMarque'
-import {ContextProviderProduit} from './contexts/dashbored/contextProviderProduit'
 import "./App.css";
-import { Login,Dashbored,Home ,Categorie,SousCategorie,SousSousCategorie,Forniseur,Marque,Produit} from "./page";
+import { Login,Dashbored,Home ,Categorie,SousCategorie,SousSousCategorie,Forniseur,Marque,Produit,ProduitDetailler} from "./page";
 import {ProtectedRoute} from "./component"
 
 const App = () => {
@@ -63,11 +63,17 @@ const App = () => {
                   
                 }/>
                 <Route path="produit" element={
-                  <ContextProviderProduit>
+               
                     <Produit/>
-                  </ContextProviderProduit>
+               
                   
                 }/>
+                <Route path="produit/:id" element={
+               
+               <ProduitDetailler/>
+          
+             
+           }/>
                 
               </Route>
               

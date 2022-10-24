@@ -26,6 +26,7 @@ const Error =({submit,value,titel})=>{
 }
 
 const InputSelect = ({ titel, bind, data, value , submit, search }) => {
+  console.log(data)
   return (
     <FormControl className="border w-full rounded" size="small">
       <Select
@@ -43,7 +44,7 @@ const InputSelect = ({ titel, bind, data, value , submit, search }) => {
           </MenuItem>
         ) : (
           <MenuItem disabled={true} value="null">
-            <em className="text-gray-400">{titel}</em>
+            <p className="text-gray-400">{titel}</p>
           </MenuItem>
         )}
         {data.map((name) => (

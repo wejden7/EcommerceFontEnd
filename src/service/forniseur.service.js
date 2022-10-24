@@ -35,10 +35,10 @@ export async function getAll(){
         await axiosConfig
           .get("/forniseur", headers)
           .then(async (res) => {
-            resolve(res);
+            resolve(res.data.data);
           })
           .catch((error) => {
-           
+            resolve([]);
             reject(error);
           });
       });

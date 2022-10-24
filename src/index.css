@@ -1,9 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa');
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(229, 234, 240)
+  background-color: rgb(229, 234, 240);
+
   
+  
+}
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @tailwind base;

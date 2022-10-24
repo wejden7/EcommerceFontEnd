@@ -1,6 +1,8 @@
 import React,{useEffect} from "react";
+import {getCount,increaseCount} from '../../page/dashbored/pages/produit/produitSlice'
 import IconButton from "@mui/material/IconButton";
 import { FiAlignJustify } from "react-icons/fi";
+import {useSelector,useDispatch} from "react-redux"
 import { AiOutlineMenu ,AiOutlineLogout} from 'react-icons/ai';
 import { FiShoppingCart } from 'react-icons/fi';
 import { BsChatLeft } from 'react-icons/bs';
@@ -38,7 +40,8 @@ const NavBar = () => {
     setScreenSize,
     screenSize,
   } = UseStateContext();
-
+  const dispatch = useDispatch();
+  const count =useSelector(getCount)
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -67,6 +70,7 @@ const NavBar = () => {
      
      
       <div className="flex">
+      <button onClick={()=>dispatch(increaseCount())}>clik : {count}</button>
         <NavButton title="Cart" customFunc={() => handleClick('cart')} color={currentColor} icon={<FiShoppingCart />} />
         <NavButton title="Chat" dotColor="#03C9D7" customFunc={() => handleClick('chat')} color={currentColor} icon={<BsChatLeft />} />
         <NavButton title="Notification" dotColor="rgb(254, 201, 15)" customFunc={() => handleClick('notification')} color={currentColor} icon={<RiNotification3Line />} />

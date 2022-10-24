@@ -34,10 +34,10 @@ export async function getAll() {
       .get("/sousSousCategorie", headers)
       .then(async (res) => {
         console.log("sucsses");
-        resolve(res.data);
+        resolve(res.data.categories);
       })
       .catch((error) => {
-       
+        resolve([]);
         reject(error);
       });
   });
