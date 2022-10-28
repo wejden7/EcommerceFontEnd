@@ -88,6 +88,6 @@ export const links = [
       time: '1:12 AM',
     },
   ];
-var url_host =  "https://shope7.herokuapp.com"
+var url_host =  "https://ecommerce7.onrender.com"
 var url_local =  "http://127.0.0.1:3006"
 export const baseUrl= url_host;
