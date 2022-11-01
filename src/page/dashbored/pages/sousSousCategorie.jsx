@@ -39,7 +39,7 @@ const SousSousCategorie = () => {
           <FormSousSousCategorie />
         </ModelComponent>
       </div>
-      <div className="bg-white  w-full gap-4 rounded p-5 flex justify-center items-center">
+      <div className="bg-white  w-full gap-4 rounded p-5 flex justify-center place-items-center">
         <p className="text-xl hidden sm:flex  min-w-max font-bold text-blue-700 tracking-wider mr-1">
           Recherce :
         </p>

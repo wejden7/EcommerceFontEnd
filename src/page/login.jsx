@@ -63,12 +63,12 @@ const Login = () => {
             <input
               {...bindFirstName}
               className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 text-base leading-tight focus:outline-none "
-              placeholder="Entre Email/Phone No"
+              placeholder="Entre Email:admin@admin.com"
             />
             <input
               {...bindPassword}
               className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 text-base leading-tight focus:outline-none "
-              placeholder="Entre Email/Phone No"
+              placeholder="Entre psw:123456"
             />
 
             <p className="text-xs font-medium">Having account signin?</p>
