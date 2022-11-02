@@ -39,11 +39,11 @@ const SousSousCategorie = () => {
           <FormSousSousCategorie />
         </ModelComponent>
       </div>
-      <div className="bg-white  w-full gap-4 rounded p-5 flex justify-center place-items-center">
+      <div className="bg-white  w-full gap-4 rounded p-5 flex  ">
         <p className="text-xl hidden sm:flex  min-w-max font-bold text-blue-700 tracking-wider mr-1">
           Recherce :
         </p>
-        <div className="flex  w-full gap-4 hidden sm:flex items-center">
+        <div className="flex  h-min  w-full gap-4 hidden sm:flex items-center">
           <InputSelect
             titel={"Categorie"}
             data={categories}
@@ -58,7 +58,7 @@ const SousSousCategorie = () => {
           />
         </div>
 
-        <div className="w-1/2 border rounded-md  ">
+        <div className="w-1/2 h-min border rounded-md  ">
           <InputSerch bind={bindSerchLabel} />
         </div>
       </div>

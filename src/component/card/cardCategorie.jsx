@@ -40,15 +40,15 @@ const ButtonNavigate = ({ url }) => {
 };
 
 const Titel = ({ label }) => (
-  <p className="font-bold  break-words truncate">{label}</p>
+  <p className="font-bold  break-words text-center w-32 truncate ">{label}</p>
 );
 
 const CardCategorie = ({ item, Delete, Update, url }) => {
   return (
     <FilterMotion>
-    <div className="relative">
+    <div className="relative h-40">
     <ButtonDelete onClick={Delete} id={item._id} />
-      <div className=" gap-1 grid place-items-center m-4 border p-4 border-2 border-black rounded-lg cursor-pointer ">
+      <div className=" gap-1 h-full grid place-items-center m-4 border p-4 border-2 border-black rounded-lg cursor-pointer ">
         <div className=" rounded-full w-12 h-12 grid place-items-center -mt-10 border-2 bg-icon  border-black">
           <Image src={"/icons/" + item.icon} alt="icon" h={6} w={6} />
         </div>

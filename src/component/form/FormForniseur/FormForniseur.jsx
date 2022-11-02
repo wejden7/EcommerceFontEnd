@@ -20,7 +20,7 @@ const FormForniseur = () => {
   return (
     <form className="grid gap-3  justify-items-center ">
       <p className="font-medium tracking-wider text-blue-500 ">New Forniseur</p>
-      <div className="w-3/4  grid gap-3">
+      <div className="w-3/4   ">
         <div>
           <InputText
             bind={bindName}

@@ -22,7 +22,7 @@ const InputText = ({ bind, value, submit, placeholder, type }) => {
       <input
         {...bind}
         placeholder={placeholder || "Label"}
-        className=" h-10 mb-1 w-full appearance-none border rounded border-gray-400 hover:border-black hover:cursor-pointer  py-2 px-3 text-gray-700 text-base leading-tight focus:outline-none "
+        className=" h-10  w-full appearance-none border rounded border-gray-400 hover:border-black hover:cursor-pointer  py-2 px-3 text-gray-700 text-base leading-tight focus:outline-none "
         type="text"
       />
       <Error submit={submit} value={value} type={type} placeholder={placeholder} />

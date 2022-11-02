@@ -28,7 +28,7 @@ const InputNumber = ({ bind, value, submit, placeholder, max,min }) => {
       <input
         {...bind}
         placeholder={placeholder || "Label"}
-        className=" h-10 w-full appearance-none border rounded border-gray-400 hover:border-black hover:cursor-pointer  py-2 px-3 text-gray-700 text-base leading-tight focus:outline-none "
+        className=" h-10 mb-4 w-full appearance-none border rounded border-gray-400 hover:border-black hover:cursor-pointer  py-2 px-3 text-gray-700 text-base leading-tight focus:outline-none "
       />
       <Error submit={submit} value={value} placeholder={placeholder} max={max} min={min} />
     </div>
